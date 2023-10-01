@@ -71,7 +71,16 @@ Console.WriteLine("Jack the dog va creado");
 dog = new Dog("Jack the dog");
 AnimalEat(dog);
 
+
 Console.WriteLine("\n\nDependency Inversion Principle:\n");
+
+void AnimalsToEat(Animal[] animals)
+{
+    foreach (Animal x in animals)
+    {
+        x.Eat();
+    }
+}
 
 Console.WriteLine("Se creo un Dog, un Turtle y un Yiguirro");
 
@@ -79,8 +88,4 @@ Animal[] animals = {
     new Turtle("Richard the turtle"),new Dog("Difo the dog"), new Yiguirro("Jake the yiguirro")
 };
 Console.WriteLine("Los tres animales van a comer");
-
-foreach (Animal x in animals)
-{
-    x.Eat();
-}
+AnimalsToEat(animals);
