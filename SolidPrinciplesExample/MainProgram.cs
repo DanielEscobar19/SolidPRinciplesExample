@@ -1,4 +1,6 @@
 ﻿using SolidPrinciplesExample.OpenClosedPrinciple;
+using SolidPrinciplesExample.Animal;
+
 
 Console.WriteLine("Open closed principle:\n");
 
@@ -40,5 +42,22 @@ Console.WriteLine("Creado un circulo de radio 4");
 Console.WriteLine($"El diametro del circulo es: {circle.getDiameter()}");
 
 
-Console.WriteLine("\n\nSingle responsability principle:");
+Console.WriteLine("\n\nLiskov Substitution Principle:\n");
+
+void AnimalEat(Animal animal)
+{
+    animal.Eat();
+}
+
+Animal dog = new Dog("Jack the dog");
+
+Animal cheetah = new Animal("Ferb the cheetah");
+
+Console.WriteLine("Ferb the cheetah va a comer");
+AnimalEat(dog);
+
+Console.WriteLine("");
+
+Console.WriteLine("Jack the dog va a comer");
+AnimalEat(cheetah);
 
