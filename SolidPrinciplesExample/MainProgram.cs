@@ -42,6 +42,17 @@ Console.WriteLine("Creado un circulo de radio 4");
 Console.WriteLine($"El diametro del circulo es: {circle.getDiameter()}");
 
 
+Console.WriteLine("\n\nInterface Segregation Principle:\n");
+
+Console.WriteLine("Vanessa the dog creado");
+Animal dog = new Dog("Vanessa the dog");
+((Dog)dog).Run();
+
+Animal yiguirro = new Yiguirro("Perry the yiguirro");
+Console.WriteLine("Perry the yiguirro creado");
+((Yiguirro) yiguirro).Fly();
+
+
 Console.WriteLine("\n\nLiskov Substitution Principle:\n");
 
 void AnimalEat(Animal animal)
@@ -49,7 +60,7 @@ void AnimalEat(Animal animal)
     animal.Eat();
 }
 
-Animal dog = new Dog("Jack the dog");
+dog = new Dog("Jack the dog");
 
 Animal cheetah = new Animal("Ferb the cheetah");
 
@@ -60,4 +71,5 @@ Console.WriteLine("");
 
 Console.WriteLine("Jack the dog va a comer");
 AnimalEat(cheetah);
+
 

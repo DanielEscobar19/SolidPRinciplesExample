@@ -12,10 +12,6 @@ namespace SolidPrinciplesExample.Animal
     {
         public abstract void Eat();
     }
-    interface AcuaticAnimal
-    {
-        public abstract void Swim();
-    }
 
     interface FlyingAnimal
     {
@@ -60,4 +56,20 @@ namespace SolidPrinciplesExample.Animal
         }
     }
 
+    public class Yiguirro : Animal, FlyingAnimal
+    {
+        public Yiguirro(string animal) : base(animal) { }
+
+
+        public override void Eat()
+        {
+            Console.WriteLine($"El animal {this.Name} esta comiendo semillas");
+        }
+
+        public void Fly()
+        {
+            Console.WriteLine($"El animal {this.Name} esta volando por las nubes");
+
+        }
+    }
 }
