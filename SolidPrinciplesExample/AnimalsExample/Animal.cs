@@ -72,4 +72,15 @@ namespace SolidPrinciplesExample.Animal
 
         }
     }
+
+    public class Turtle : Animal
+    {
+        public Turtle(string animal) : base(animal) { }
+
+
+        public override void Eat()
+        {
+            Console.WriteLine($"El animal {this.Name} esta comiendo lechuga");
+        }
+    }
 }
