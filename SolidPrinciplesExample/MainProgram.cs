@@ -60,16 +60,15 @@ void AnimalEat(Animal animal)
     animal.Eat();
 }
 
-dog = new Dog("Jack the dog");
 
-Animal cheetah = new Animal("Ferb the cheetah");
-
-Console.WriteLine("Ferb the cheetah va a comer");
-AnimalEat(dog);
+Console.WriteLine("Animal generico creado");
+Animal cheetah = new Animal("Un animal generico");
+AnimalEat(cheetah);
 
 Console.WriteLine("");
 
-Console.WriteLine("Jack the dog va a comer");
-AnimalEat(cheetah);
+Console.WriteLine("Jack the dog va creado");
+dog = new Dog("Jack the dog");
+AnimalEat(dog);
 
 
