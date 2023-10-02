@@ -1,9 +1,8 @@
 ﻿using SolidPrinciplesExample.OpenClosedPrinciple;
 using SolidPrinciplesExample.Animal;
-
+using SolidPrinciplesExample.UserServiceExample;
 
 Console.WriteLine("Open closed principle:\n");
-
 
 Shape[] shapes = {
     new Rectangle
@@ -89,3 +88,16 @@ Animal[] animals = {
 };
 Console.WriteLine("Los tres animales van a comer");
 AnimalsToEat(animals);
+
+
+Console.WriteLine("\n\nSingle responsability principle:\n");
+
+Console.WriteLine("Se creo un servicio de email y uno de usuario");
+EmailService emailService = new EmailService();
+DbService dbService = new DbService();
+
+UserService register = new UserService(emailService, dbService);
+
+string email = "danielonchio@gmail.com";
+Console.WriteLine($"El usario se resgitra con el email: {email}:");
+register.Register(email);

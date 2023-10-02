@@ -10,30 +10,43 @@ namespace SolidPrinciplesExample.UserServiceExample
 {
     public class UserService
     {
-        private EmailService emailService;
-        public UserService(EmailService aEmailService) { 
-            this.emailService = emailService;
+        private EmailService EmailService;
+        private DbService DbService;
+        public UserService(EmailService emailService, DbService dbService) { 
+            this.EmailService = emailService;
+            this.DbService = dbService;
         }
         public void Register(string email)
         {
-            if (emailService.ValidateEmail(email) == false)
+            if (EmailService.ValidateEmail(email) == false)
             {
                 throw new ValidationException("Email is not an email");
             }
 
-            emailService.SendEmail("Hello I just registered my account!");
+            this.DbService.RegisterUserEmail(email);
+
+            EmailService.SendEmail("Hello I just registered my account!");
         }
     }
 
     public class EmailService {
         public bool ValidateEmail(string email)
         {
-            return email.Contains("@");
+            return email.Contains("@") && email.EndsWith(".com");
         }
 
         public void SendEmail(string message)
         {
-            Console.WriteLine($"Sending messahe: {message}");
+            Console.WriteLine($"Sending message: {message}");
+        }
+    }
+
+    public class DbService
+    {
+        public void RegisterUserEmail(string email)
+        {
+            Console.WriteLine($"User: {email} has been registered successfully");
+
         }
     }
 }
